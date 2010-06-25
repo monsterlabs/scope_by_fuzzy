@@ -1,0 +1,48 @@
+= Description
+
+The pg_scope_by_soundex gem provides a simple interface to use the set of functions of contrib/fuzzystringmatching for PostgreSQL.
+
+== How to install It
+
+Edit your Gemfile and insert the next line:
+
+  gem "pg_scope_by_soundex"
+
+Then use the bundler to install It:
+
+  $ bundle install
+
+Add the next line into your file config/initializers/my_gems.rb:
+
+  require 'pg_scope_by_soundex'
+
+Then execute the rails migration generator:
+
+   $ ./script/rails generate pg_scope_by_soundex_install
+
+And finally run the rails migrations to add the functions for PostgreSQL:
+
+  $ rake db:migrate
+
+== How to use It
+
+  # scope_by_soundex_matcher
+
+  class Person < ActiveRecord::Base
+      scope_by_soundex_matcher :find_by_fullname, :fields => [:firstname, :lastname]
+  end
+
+  Person.find_by_fullname 'Alejandro' => Returns a collection of active_record objects
+
+
+  # scope_by_difference_matcher
+
+  class Person < ActiveRecord::Base
+      scope_by_difference_matcher :find_by_fullname, :fields => [:firstname, :lastname]
+  end
+
+  Person.find_by_fullname 'Alejandro' => Returns a collection of active_record objects
+ 
+== Copyright
+
+Copyright (c) 2010 Alejandro Juarez. See LICENSE for details.
