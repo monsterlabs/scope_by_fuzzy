@@ -1,3 +1,0 @@
-To copy the PgScopeBySoundex migration to your Rails App, just do:
-
-    rails generate pg_scope_by_soundex_install
