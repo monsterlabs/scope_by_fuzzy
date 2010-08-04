@@ -1,0 +1,3 @@
+To copy the ScopeByFuzzy migration to your Rails App, just do:
+
+    rails generate scope_by_fuzzy

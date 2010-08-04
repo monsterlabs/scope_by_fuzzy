@@ -1,1 +1,1 @@
-require 'pg_scope_by_soundex'
+require 'scope_by_fuzzy'
