@@ -14,10 +14,8 @@ module ScopeByFuzzy
       # end
       # Person.find_by_fullname 'Alejandro'
       def scope_by_soundex(method_name, options={})
-        class_eval do
           sql = options[:fields].collect { |field| "soundex(#{field}) = soundex(:q)"}.join(' OR ')
           scope method_name.to_sym, lambda {|string| where(sql, :q => string) }
-        end
       end
 
       # scope_by_difference
@@ -32,8 +30,7 @@ module ScopeByFuzzy
       # end
       # Person.find_by_fullname 'Alejandro'
       def scope_by_difference(method_name, options={})
-        class_eval do
-          if options[:by_sql].nil?
+          unless options.has_key? :by_sql
             options[:position] ||= 3
             options[:operator] = '>'
             sql = options[:fields].collect { |field|"difference(#{field}, :q) #{options[:operator]} #{options[:position]}" }.join(' OR ')
@@ -41,7 +38,6 @@ module ScopeByFuzzy
             sql = options[:by_sql]
           end
           scope method_name.to_sym, lambda {|string| where(sql, :q => string) }
-        end
       end
 
       # TODO: The following PostgreSQL functions are not implemented: dmetaphone_alt, dmetaphone, text_soundex, metaphone and levenshtein.
