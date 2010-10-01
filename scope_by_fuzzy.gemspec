@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{scope_by_fuzzy}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Alejandro Juarez"]
-  s.date = %q{2010-08-04}
+  s.date = %q{2010-10-01}
   s.description = %q{The scope_by_fuzzy gem uses the set of functions of contrib/fuzzystringmatching for PostgreSQL.}
   s.email = %q{alex@monsterlabs.com.mx}
   s.extra_rdoc_files = [
@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
     "LICENSE",
      "init.rb",
      "lib/generators/scope_by_fuzzy_install/USAGE",
-     "lib/generators/scope_by_fuzzy_install/pg_scope_by_soundex_install_generator.rb",
+     "lib/generators/scope_by_fuzzy_install/scope_by_fuzzy_install_generator.rb",
      "lib/generators/scope_by_fuzzy_install/templates/migration.rb",
      "lib/scope_by_fuzzy.rb",
      "lib/scope_by_fuzzy/named_scope.rb"
