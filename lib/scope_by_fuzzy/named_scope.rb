@@ -37,7 +37,7 @@ module ScopeByFuzzy
           else
             sql = options[:by_sql]
           end
-          scope method_name.to_sym, lambda {|string| where(sql, :q => string) }
+          scope method_name.to_sym, lambda {|string| where(sql, :q => quote_bound_value(string)) }
       end
 
       # TODO: The following PostgreSQL functions are not implemented: dmetaphone_alt, dmetaphone, text_soundex, metaphone and levenshtein.
